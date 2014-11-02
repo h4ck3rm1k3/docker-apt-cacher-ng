@@ -4,40 +4,35 @@
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Data Store](#data-store)
-- [Upgrading](#upgrading)
 
 # Introduction
-Dockerfile to build a apt-cacher-ng container.
+Dockerfile to build a apt-cacher-ng container in a debian experimental env
 
 # Contributing
 
 If you find this image useful here's how you can help:
 
 - Send a Pull Request with your awesome new features and bug fixes
-- Help new users with [Issues](https://github.com/sameersbn/docker-apt-cacher-ng/issues) they may encounter
-- Send me a tip on [Gittip](https://gittip.com/sameersbn/) or using Bitcoin at **16rDxVqJPyYAFYPLduTaSiwe7ZiY1hHqKM**
+- Help new users with [Issues](https://github.com/h4ck3rm1k3/docker-apt-cacher-ng/issues) they may encounter
+- Send me a tip on [Gittip](https://gittip.com/h4ck3rm1k3/) or using Bitcoin at
+  **bf449be439f5949c5f0d254b5c15728c** or **1F5XhHPgYCHSt7Zj7Xxt8QZSYcsG5U7SuQ**
+  https://fmtyewtk.blogspot.com/2012/01/donations.html
 
 # Installation
-Pull the latest version of the image from the docker index. This is the recommended method of installation as it is easier to update image in the future. These builds are performed by the **Docker Trusted Build** service.
+
+build the image yourself.
 
 ```
-docker pull sameersbn/apt-cacher-ng:latest
-```
-
-Alternately you can build the image yourself.
-
-```
-git clone https://github.com/sameersbn/docker-apt-cacher-ng.git
+git clone https://github.com/h4ck3rm1k3/docker-apt-cacher-ng.git
 cd docker-apt-cacher-ng
-docker build -t="$USER/apt-cacher-ng" .
+make
 ```
 
 # Quick Start
 Run the image
 
 ```
-docker run --name='apt-cacher-ng' -d -p 3142:3142 \
-sameersbn/apt-cacher-ng:latest
+make run
 ```
 
 To enabling caching on the host create the file `/etc/apt/apt.conf.d/01proxy` with the following content:
@@ -60,27 +55,6 @@ docker run --name='apt-cacher-ng' -d -p 3142:3142 \
 sameersbn/apt-cacher-ng:latest
 ```
 
-# Upgrading
-
-To upgrade to newer releases, simply follow this 3 step upgrade procedure.
-
-- **Step 1**: Update the docker image.
-
-```
-docker pull sameersbn/apt-cacher-ng:latest
-```
-
-- **Step 2**: Stop the currently running image
-
-```
-docker stop bind
-```
-
-- **Step 3**: Start the image
-
-```
-docker run -name bind -d [OPTIONS] sameersbn/apt-cacher-ng:latest
-```
 
 # See Also 
 https://www.digitalocean.com/community/tutorials/docker-explained-how-to-create-docker-containers-running-memcached
