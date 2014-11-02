@@ -1,4 +1,7 @@
 all: build
 
 build:
-	@docker build --tag=${USER}/apt-cacher-ng .
+	sudo docker build --tag=apt-cacher-ng .
+
+run : 
+	sudo docker run --name=apt-cacher-ng2 apt-cacher-ng 
